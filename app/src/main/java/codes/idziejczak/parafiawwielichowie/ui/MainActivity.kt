@@ -1,7 +1,8 @@
-package codes.idziejczak.parafiawwielichowie
+package codes.idziejczak.parafiawwielichowie.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import codes.idziejczak.parafiawwielichowie.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
