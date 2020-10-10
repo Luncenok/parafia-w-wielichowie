@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Parafia w Wielichowie</string>
+    <string name="home_photo_description">Zdjęcie kościoła w Wielichowie</string>
+    <string name="home_intencje_i_ogloszenia">Intencje i Ogłoszenia</string>
+    <string name="home_kalndarium">Kalndarium</string>
+    <string name="home_informacje_ogolne">Informacje ogólne</string>
+    <string name="home_liturgia">Liturgia</string>
+    <string name="home_niezbedniki">Niezbędniki</string>
+    <string name="home_kontakt">Kontakt</string>
 </resources>
