@@ -3,6 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+
+        <variable
+            name="viewModel"
+            type="codes.idziejczak.parafiawwielichowie.viewmodels.HomeViewModel" />
+
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -79,6 +87,7 @@
                         android:layout_marginBottom="5dp"
                         android:text="@string/home_intencje_i_ogloszenia"
                         app:icon="@drawable/ic_sun"
+                        android:onClick="@{() -> viewModel.beginNavigate()}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
