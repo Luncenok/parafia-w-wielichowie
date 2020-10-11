@@ -1,4 +1,4 @@
-package codes.idziejczak.parafiawwielichowie.ui
+package codes.idziejczak.parafiawwielichowie.ogloszenia
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import codes.idziejczak.parafiawwielichowie.R
 import codes.idziejczak.parafiawwielichowie.databinding.FragmentOgloszeniaBinding
-import codes.idziejczak.parafiawwielichowie.viewmodels.OgloszeniaViewModel
 
 class OgloszeniaFragment : Fragment() {
 
@@ -24,7 +24,12 @@ class OgloszeniaFragment : Fragment() {
         val binding: FragmentOgloszeniaBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_ogloszenia, container, false)
         binding.lifecycleOwner = this
-        activity?.actionBar?.title = getString(R.string.home_intencje_i_ogloszenia)
+
+        val adapter = OgloszeniaAdapter()
+        adapter.ogloszeniaList = viewModel.ogloszeniaList
+        binding.ogloszeniaList.adapter = adapter
+        binding.ogloszeniaList.layoutManager = LinearLayoutManager(context)
+
 
         return binding.root
     }

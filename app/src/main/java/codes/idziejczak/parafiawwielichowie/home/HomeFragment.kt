@@ -1,4 +1,4 @@
-package codes.idziejczak.parafiawwielichowie.ui
+package codes.idziejczak.parafiawwielichowie.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import codes.idziejczak.parafiawwielichowie.R
 import codes.idziejczak.parafiawwielichowie.databinding.FragmentHomeBinding
-import codes.idziejczak.parafiawwielichowie.viewmodels.HomeViewModel
 
 class HomeFragment : Fragment() {
 
@@ -27,7 +26,6 @@ class HomeFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
-        activity?.actionBar?.title = getString(R.string.app_name)
 
         viewModel.navigateToOgloszenia.observe(viewLifecycleOwner, {
             if (it == true) {

@@ -1,4 +1,4 @@
-package codes.idziejczak.parafiawwielichowie.viewmodels
+package codes.idziejczak.parafiawwielichowie.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

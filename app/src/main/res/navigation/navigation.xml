@@ -5,7 +5,7 @@
     app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/homeFragment"
-        android:name="codes.idziejczak.parafiawwielichowie.ui.HomeFragment"
+        android:name="codes.idziejczak.parafiawwielichowie.home.HomeFragment"
         android:label="HomeFragment">
         <action
             android:id="@+id/action_homeFragment_to_ogloszeniaFragment"
@@ -13,7 +13,7 @@
     </fragment>
     <fragment
         android:id="@+id/ogloszeniaFragment"
-        android:name="codes.idziejczak.parafiawwielichowie.ui.OgloszeniaFragment"
+        android:name="codes.idziejczak.parafiawwielichowie.ogloszenia.OgloszeniaFragment"
         android:label="OgloszeniaFragment">
         <action
             android:id="@+id/action_ogloszeniaFragment_to_homeFragment"
