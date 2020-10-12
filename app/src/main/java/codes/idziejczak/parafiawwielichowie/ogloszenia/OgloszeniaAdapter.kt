@@ -3,6 +3,7 @@ package codes.idziejczak.parafiawwielichowie.ogloszenia
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
+import androidx.core.text.HtmlCompat
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import codes.idziejczak.parafiawwielichowie.R
@@ -36,7 +37,8 @@ class OgloszeniaAdapter : RecyclerView.Adapter<OgloszeniaAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.also {
-            it.test.text = ogloszeniaList[position]
+            it.test.text =
+                HtmlCompat.fromHtml(ogloszeniaList[position], HtmlCompat.FROM_HTML_MODE_COMPACT)
         }
     }
 

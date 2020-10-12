@@ -26,7 +26,9 @@ class OgloszeniaFragment : Fragment() {
         binding.lifecycleOwner = this
 
         val adapter = OgloszeniaAdapter()
-        adapter.ogloszeniaList = viewModel.ogloszeniaList
+        viewModel.ogloszeniaList.observe(viewLifecycleOwner, {
+            adapter.ogloszeniaList = it
+        })
         binding.ogloszeniaList.adapter = adapter
         binding.ogloszeniaList.layoutManager = LinearLayoutManager(context)
 
