@@ -5,17 +5,15 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.core.text.HtmlCompat
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import codes.idziejczak.parafiawwielichowie.R
+import codes.idziejczak.parafiawwielichowie.database.Ogloszenie
 import codes.idziejczak.parafiawwielichowie.databinding.ListItemOgloszenieBinding
 
-class OgloszeniaAdapter : RecyclerView.Adapter<OgloszeniaAdapter.ViewHolder>() {
-
-    var ogloszeniaList = emptyList<String>()
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
+class OgloszeniaAdapter :
+    ListAdapter<Ogloszenie, OgloszeniaAdapter.ViewHolder>(OgloszeniaDiffCallback()) {
 
     class ViewHolder(val binding: ListItemOgloszenieBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -38,9 +36,18 @@ class OgloszeniaAdapter : RecyclerView.Adapter<OgloszeniaAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.binding.also {
             it.test.text =
-                HtmlCompat.fromHtml(ogloszeniaList[position], HtmlCompat.FROM_HTML_MODE_COMPACT)
+                HtmlCompat.fromHtml(getItem(position).body, HtmlCompat.FROM_HTML_MODE_COMPACT)
         }
     }
+}
 
-    override fun getItemCount(): Int = ogloszeniaList.size
+class OgloszeniaDiffCallback : DiffUtil.ItemCallback<Ogloszenie>() {
+    override fun areItemsTheSame(oldItem: Ogloszenie, newItem: Ogloszenie): Boolean {
+        return oldItem.id == newItem.id
+    }
+
+    override fun areContentsTheSame(oldItem: Ogloszenie, newItem: Ogloszenie): Boolean {
+        return oldItem == newItem
+    }
+
 }

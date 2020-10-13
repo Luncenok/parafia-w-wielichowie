@@ -9,13 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import codes.idziejczak.parafiawwielichowie.R
+import codes.idziejczak.parafiawwielichowie.database.AppDatabase
 import codes.idziejczak.parafiawwielichowie.databinding.FragmentOgloszeniaBinding
 
 class OgloszeniaFragment : Fragment() {
-
-    private val viewModel: OgloszeniaViewModel by lazy {
-        ViewModelProvider(this).get(OgloszeniaViewModel::class.java)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,9 +22,16 @@ class OgloszeniaFragment : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_ogloszenia, container, false)
         binding.lifecycleOwner = this
 
+        val application = requireNotNull(this.activity).application
+
+        val dataSource = AppDatabase.getInstance(application).ogloszeniaDatabaseDao
+        val viewModelFactory = OgloszeniaViewModel.Factory(dataSource, application)
+        val viewModel =
+            ViewModelProvider(this, viewModelFactory).get(OgloszeniaViewModel::class.java)
+
         val adapter = OgloszeniaAdapter()
-        viewModel.ogloszeniaList.observe(viewLifecycleOwner, {
-            adapter.ogloszeniaList = it
+        viewModel.listAllOgloszenia.observe(viewLifecycleOwner, {
+            adapter.submitList(it)
         })
         binding.ogloszeniaList.adapter = adapter
         binding.ogloszeniaList.layoutManager = LinearLayoutManager(context)

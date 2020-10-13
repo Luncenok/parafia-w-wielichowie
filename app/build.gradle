@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'androidx.navigation.safeargs'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 30
@@ -50,7 +51,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.2.1'
 
     // Constraint layout
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
 
     // CardView
     implementation 'androidx.cardview:cardview:1.0.0'
@@ -76,5 +77,11 @@ dependencies {
 
     // OkHttp Logging interceptor
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
+
+    // Room
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation "androidx.room:room-ktx:$room_version"
 
 }

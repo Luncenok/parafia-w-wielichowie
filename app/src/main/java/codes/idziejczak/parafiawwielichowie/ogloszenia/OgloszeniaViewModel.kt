@@ -1,46 +1,54 @@
 package codes.idziejczak.parafiawwielichowie.ogloszenia
 
+import android.app.Application
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import codes.idziejczak.parafiawwielichowie.network.ParafiaApi
+import androidx.lifecycle.*
+import codes.idziejczak.parafiawwielichowie.database.AppDatabase
+import codes.idziejczak.parafiawwielichowie.database.OgloszeniaDatabaseDao
+import codes.idziejczak.parafiawwielichowie.repository.OgloszeniaRepository
 import kotlinx.coroutines.launch
 
-class OgloszeniaViewModel : ViewModel() {
+class OgloszeniaViewModel(val appDatabase: OgloszeniaDatabaseDao, application: Application) :
+    AndroidViewModel(application) {
     private val TAG = "loggo-OgloszeniaViewModel"
-    val _ogloszeniaList = MutableLiveData<List<String>>()
-    val ogloszeniaList: LiveData<List<String>>
-        get() = _ogloszeniaList
+
+    private val ogloszeniaRepository = OgloszeniaRepository(AppDatabase.getInstance(application))
+
+    private val _eventNetworkError = MutableLiveData<Boolean?>()
+    val eventNetworkError: LiveData<Boolean?>
+        get() = _eventNetworkError
+
+    val listAllOgloszenia = ogloszeniaRepository.ogloszeniaList
 
     init {
-        getOgloszenieList()
+        refreshOgloszenia()
     }
 
-    fun getOgloszenieList() {
+    fun refreshOgloszenia() {
         viewModelScope.launch {
             try {
-                val documentResult = ParafiaApi.retrofitService.getIdOgloszenia()
-                val idLast =
-                    documentResult.select("[style=\"float: left; \"] a:first-of-type").attr("href")
-                        .replace(
-                            "ogloszenia,parafialne,", ""
-                        ).replace(".html", "").toInt()
-                val list = mutableListOf<String>()
-                for (i in idLast downTo idLast - 10) {
-                    val documentResult2 = ParafiaApi.retrofitService.getOgloszenie(i.toString())
-                    val stringSpanned =
-                        documentResult2.select("[style=\"text-align:justify; padding-right:25px\"]")
-                            .toString()
-                    list.add(stringSpanned)
-                    _ogloszeniaList.value = list
-                }
+                ogloszeniaRepository.refreshOglosznenia()
+                _eventNetworkError.value = false
             } catch (e: Exception) {
                 Log.i(TAG, "getOgloszenieList: $e")
-                _ogloszeniaList.value = listOf("nie udało się: ", e.toString())
+                if (listAllOgloszenia.value.isNullOrEmpty()) {
+                    _eventNetworkError.value = true
+                }
             }
         }
+    }
+
+    class Factory(
+        private val dataSource: OgloszeniaDatabaseDao,
+        private val application: Application
+    ) : ViewModelProvider.Factory {
+        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+            @Suppress("UNCHECKED_CAST")
+            if (modelClass.isAssignableFrom(OgloszeniaViewModel::class.java))
+                return OgloszeniaViewModel(dataSource, application) as T
+            throw IllegalArgumentException("Unable to construct viewmodel")
+        }
+
     }
 
 }

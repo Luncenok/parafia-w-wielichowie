@@ -5,6 +5,7 @@ buildscript {
         kotlin_version = "1.4.10"
         navigationVersion = '2.3.0'
         version_retrofit = '2.9.0'
+        room_version = "2.2.5"
     }
 
     repositories {
@@ -13,7 +14,7 @@ buildscript {
     }
 
     dependencies {
-        classpath "com.android.tools.build:gradle:4.0.2"
+        classpath 'com.android.tools.build:gradle:4.1.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigationVersion"
 
