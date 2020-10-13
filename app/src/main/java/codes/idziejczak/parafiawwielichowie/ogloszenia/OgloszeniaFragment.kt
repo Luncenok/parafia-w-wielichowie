@@ -4,12 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import codes.idziejczak.parafiawwielichowie.R
-import codes.idziejczak.parafiawwielichowie.database.AppDatabase
 import codes.idziejczak.parafiawwielichowie.databinding.FragmentOgloszeniaBinding
 
 class OgloszeniaFragment : Fragment() {
@@ -23,9 +23,7 @@ class OgloszeniaFragment : Fragment() {
         binding.lifecycleOwner = this
 
         val application = requireNotNull(this.activity).application
-
-        val dataSource = AppDatabase.getInstance(application).ogloszeniaDatabaseDao
-        val viewModelFactory = OgloszeniaViewModel.Factory(dataSource, application)
+        val viewModelFactory = OgloszeniaViewModel.Factory(application)
         val viewModel =
             ViewModelProvider(this, viewModelFactory).get(OgloszeniaViewModel::class.java)
 
@@ -33,9 +31,16 @@ class OgloszeniaFragment : Fragment() {
         viewModel.listAllOgloszenia.observe(viewLifecycleOwner, {
             adapter.submitList(it)
         })
+        binding.viewModel = viewModel
         binding.ogloszeniaList.adapter = adapter
         binding.ogloszeniaList.layoutManager = LinearLayoutManager(context)
 
+        viewModel.eventNetworkError.observe(viewLifecycleOwner, {
+            if (it == true && !viewModel.isErrorNetworkShown.value!!) {
+                Toast.makeText(activity, "Network Error", Toast.LENGTH_LONG).show()
+                viewModel.onNetworkErrorShown()
+            }
+        })
 
         return binding.root
     }

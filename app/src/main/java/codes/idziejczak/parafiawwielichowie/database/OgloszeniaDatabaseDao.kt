@@ -8,7 +8,7 @@ interface OgloszeniaDatabaseDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(ogloszenie: Ogloszenie)
 
-    @Query("SELECT * FROM ogloszenia_table")
+    @Query("SELECT * FROM ogloszenia_table ORDER BY id DESC")
     fun getAllOgloszenia(): LiveData<List<Ogloszenie>>
 
     @Update

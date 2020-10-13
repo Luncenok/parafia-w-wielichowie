@@ -13,7 +13,7 @@ class OgloszeniaRepository(private val database: AppDatabase) {
         database.ogloszeniaDatabaseDao.getAllOgloszenia()
 
     suspend fun refreshOglosznenia() {
-        withContext(Dispatchers.Default) {
+        withContext(Dispatchers.IO) {
             val documentResult = ParafiaApi.retrofitService.getIdOgloszenia()
             val idLast =
                 documentResult.select("[style=\"float: left; \"] a:first-of-type").attr("href")
