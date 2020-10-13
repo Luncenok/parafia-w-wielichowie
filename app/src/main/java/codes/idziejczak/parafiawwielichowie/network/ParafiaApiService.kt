@@ -1,8 +1,6 @@
 package codes.idziejczak.parafiawwielichowie.network
 
-import okhttp3.Interceptor
 import okhttp3.OkHttpClient
-import okhttp3.Response
 import okhttp3.ResponseBody
 import okhttp3.logging.HttpLoggingInterceptor
 import org.jsoup.Jsoup
@@ -17,17 +15,9 @@ import java.nio.charset.Charset
 
 private const val BASE_URL = "https://parafiawielichowo.pl/"
 
-private val REWRITE_CACHE_CONTROL_INTERCEPTOR: Interceptor = Interceptor { chain ->
-    val originalResponse: Response = chain.proceed(chain.request())
-    originalResponse.newBuilder()
-        .header("Content-Type", "text/html; charset=ISO-8859-2")
-        .build()
-}
-
 val logging: HttpLoggingInterceptor =
-    HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+    HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BASIC)
 private val client: OkHttpClient = OkHttpClient().newBuilder()
-    .addInterceptor(REWRITE_CACHE_CONTROL_INTERCEPTOR)
     .addInterceptor(logging)
     .build()
 
@@ -40,6 +30,9 @@ private val retrofit = Retrofit.Builder()
 interface ParafiaApiService {
     @GET("ogloszenia,parafialne,{id}.html")
     suspend fun getOgloszenie(@Path("id") id: String): Document
+
+    @GET("ogloszeniaparafialne.html")
+    suspend fun getIdOgloszenia(): Document
 }
 
 object ParafiaApi {

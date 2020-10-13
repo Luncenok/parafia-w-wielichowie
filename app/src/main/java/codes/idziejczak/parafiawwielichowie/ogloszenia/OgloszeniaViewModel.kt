@@ -21,19 +21,24 @@ class OgloszeniaViewModel : ViewModel() {
     fun getOgloszenieList() {
         viewModelScope.launch {
             try {
-                val x = mutableListOf<String>()
-                for (i in (942..953)) {
-                    val stringResult = ParafiaApi.retrofitService.getOgloszenie(i.toString())
+                val documentResult = ParafiaApi.retrofitService.getIdOgloszenia()
+                val idLast =
+                    documentResult.select("[style=\"float: left; \"] a:first-of-type").attr("href")
+                        .replace(
+                            "ogloszenia,parafialne,", ""
+                        ).replace(".html", "").toInt()
+                val list = mutableListOf<String>()
+                for (i in idLast downTo idLast - 10) {
+                    val documentResult2 = ParafiaApi.retrofitService.getOgloszenie(i.toString())
                     val stringSpanned =
-                        stringResult.select("[style=\"text-align:justify; padding-right:25px\"]")
+                        documentResult2.select("[style=\"text-align:justify; padding-right:25px\"]")
                             .toString()
-                    x.add(stringSpanned)
+                    list.add(stringSpanned)
+                    _ogloszeniaList.value = list
                 }
-                x.reverse()
-                _ogloszeniaList.value = x
             } catch (e: Exception) {
                 Log.i(TAG, "getOgloszenieList: $e")
-                _ogloszeniaList.value = listOf("nie", "udało się: ", e.toString())
+                _ogloszeniaList.value = listOf("nie udało się: ", e.toString())
             }
         }
     }

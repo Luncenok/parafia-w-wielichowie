@@ -74,6 +74,7 @@ dependencies {
     // Jsoup
     implementation("org.jsoup:jsoup:1.11.3")
 
+    // OkHttp Logging interceptor
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.0")
 
 }
