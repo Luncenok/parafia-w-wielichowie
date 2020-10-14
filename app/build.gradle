@@ -87,4 +87,7 @@ dependencies {
     // WorkManager dependency
     implementation "android.arch.work:work-runtime-ktx:$work_version"
 
+    // Logging
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+
 }

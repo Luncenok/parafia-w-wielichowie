@@ -1,15 +1,14 @@
 package codes.idziejczak.parafiawwielichowie.ui.ogloszenia
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.*
 import codes.idziejczak.parafiawwielichowie.database.AppDatabase
 import codes.idziejczak.parafiawwielichowie.repository.OgloszeniaRepository
 import kotlinx.coroutines.launch
+import timber.log.Timber
 
 class OgloszeniaViewModel(application: Application) :
     AndroidViewModel(application) {
-    private val TAG = "loggo-OgloszeniaViewModel"
 
     private val ogloszeniaRepository = OgloszeniaRepository(AppDatabase.getInstance(application))
 
@@ -34,7 +33,7 @@ class OgloszeniaViewModel(application: Application) :
                 _eventNetworkError.value = false
                 _isErrorNetworkShown.value = false
             } catch (e: Exception) {
-                Log.i(TAG, "getOgloszenieList: $e")
+                Timber.i("getOgloszenieList: $e")
                 if (listAllOgloszenia.value.isNullOrEmpty()) {
                     _eventNetworkError.value = true
                 }
