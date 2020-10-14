@@ -1,4 +1,4 @@
-package codes.idziejczak.parafiawwielichowie.ogloszenia
+package codes.idziejczak.parafiawwielichowie.ui.ogloszenia
 
 import android.app.Application
 import android.util.Log

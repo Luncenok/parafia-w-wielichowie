@@ -1,4 +1,4 @@
-package codes.idziejczak.parafiawwielichowie.home
+package codes.idziejczak.parafiawwielichowie.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater

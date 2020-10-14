@@ -7,13 +7,13 @@
 
         <variable
             name="viewModel"
-            type="codes.idziejczak.parafiawwielichowie.ogloszenia.OgloszeniaViewModel" />
+            type="codes.idziejczak.parafiawwielichowie.ui.ogloszenia.OgloszeniaViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ogloszenia.OgloszeniaFragment">
+        tools:context=".ui.ogloszenia.OgloszeniaFragment">
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
