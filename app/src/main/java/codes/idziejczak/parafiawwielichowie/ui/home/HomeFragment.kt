@@ -1,15 +1,18 @@
 package codes.idziejczak.parafiawwielichowie.ui.home
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import codes.idziejczak.parafiawwielichowie.R
 import codes.idziejczak.parafiawwielichowie.databinding.FragmentHomeBinding
+
 
 class HomeFragment : Fragment() {
 
@@ -36,5 +39,17 @@ class HomeFragment : Fragment() {
         })
 
         return binding.root
+    }
+
+    @SuppressLint("RestrictedApi")
+    override fun onResume() {
+        super.onResume()
+        (requireActivity() as AppCompatActivity).supportActionBar?.setShowHideAnimationEnabled(false)
+        (requireActivity() as AppCompatActivity).supportActionBar?.hide()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        (requireActivity() as AppCompatActivity).supportActionBar?.show()
     }
 }
