@@ -10,7 +10,7 @@ import kotlinx.coroutines.withContext
 class OgloszeniaRepository(private val database: AppDatabase) {
 
     val ogloszeniaList: LiveData<List<Ogloszenie>> =
-        database.ogloszeniaDatabaseDao.getAllOgloszenia()
+        database.ogloszeniaDatabaseDao.getAllOgloszeniaLiveData()
 
     suspend fun refreshOglosznenia() {
         withContext(Dispatchers.IO) {
@@ -19,7 +19,16 @@ class OgloszeniaRepository(private val database: AppDatabase) {
                 documentResult.select("[style=\"float: left; \"] a:first-of-type").attr("href")
                     .replace(
                         "ogloszenia,parafialne,", ""
-                    ).replace(".html", "").toInt()
+                    ).replace(".html", "").toInt() + 1
+            var notify = false
+            database.ogloszeniaDatabaseDao.getAllOgloszenia().let {
+                if (it.isNotEmpty()) {
+                    if (it.first().id < idLast) {
+                        notify = true
+                    }
+                }
+            }
+
             for (i in idLast downTo idLast - 10) {
                 val documentResult2 = ParafiaApi.retrofitService.getOgloszenie(i.toString())
                 val stringSpanned =
@@ -28,11 +37,16 @@ class OgloszeniaRepository(private val database: AppDatabase) {
                 database.ogloszeniaDatabaseDao.insert(
                     Ogloszenie(
                         id = i,
+                        notify = notify,
                         body = stringSpanned
                     )
                 )
             }
         }
+    }
+
+    fun getgloszenia(): List<Ogloszenie> {
+        return database.ogloszeniaDatabaseDao.getAllOgloszenia()
     }
 
 }

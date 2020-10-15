@@ -10,6 +10,9 @@ data class Ogloszenie(
     @PrimaryKey
     val id: Int,
 
+    @ColumnInfo(name = "notify")
+    val notify: Boolean,
+
     @ColumnInfo(name = "body")
     val body: String
 )

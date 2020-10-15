@@ -9,7 +9,10 @@ interface OgloszeniaDatabaseDao {
     suspend fun insert(ogloszenie: Ogloszenie)
 
     @Query("SELECT * FROM ogloszenia_table ORDER BY id DESC")
-    fun getAllOgloszenia(): LiveData<List<Ogloszenie>>
+    fun getAllOgloszeniaLiveData(): LiveData<List<Ogloszenie>>
+
+    @Query("SELECT * FROM ogloszenia_table ORDER BY id DESC")
+    fun getAllOgloszenia(): List<Ogloszenie>
 
     @Update
     suspend fun update(ogloszenie: Ogloszenie)
