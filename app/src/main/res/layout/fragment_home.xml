@@ -32,8 +32,8 @@
             app:layout_constraintVertical_chainStyle="packed">
 
             <ImageView
-                android:layout_width="200dp"
-                android:layout_height="150dp"
+                android:layout_width="267dp"
+                android:layout_height="200dp"
                 android:contentDescription="@string/home_photo_description"
                 app:srcCompat="@drawable/wielichowo_foto_cmentarz" />
         </androidx.cardview.widget.CardView>
@@ -78,7 +78,7 @@
                     app:layout_constraintVertical_weight="1">
 
                     <Button
-                        style="@style/Widget.MaterialComponents.Button.Icon"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
@@ -88,7 +88,7 @@
                         android:text="@string/home_intencje_i_ogloszenia"
                         app:icon="@drawable/ic_sun"
                         android:textStyle="bold"
-                        android:onClick="@{() -> viewModel.beginNavigate()}"
+                        android:onClick="@{() -> viewModel.beginNavigateOgloszenia()}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -109,7 +109,7 @@
                     app:layout_constraintVertical_weight="1">
 
                     <Button
-                        style="@style/Widget.MaterialComponents.Button"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
@@ -139,7 +139,7 @@
                     app:layout_constraintVertical_weight="1">
 
                     <Button
-                        style="@style/Widget.MaterialComponents.Button"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
@@ -183,16 +183,17 @@
                     app:layout_constraintVertical_weight="1">
 
                     <Button
-                        style="@style/Widget.MaterialComponents.Button"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="5dp"
-                        android:text="@string/home_liturgia"
+                        android:onClick="@{() -> viewModel.beginNavigateLiturgia()}"
                         app:icon="@drawable/ic_book"
                         android:textStyle="bold"
+                        android:text="@string/home_grupy"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -213,7 +214,7 @@
                     app:layout_constraintVertical_weight="1">
 
                     <Button
-                        style="@style/Widget.MaterialComponents.Button"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
@@ -243,7 +244,7 @@
                     app:layout_constraintVertical_weight="1">
 
                     <Button
-                        style="@style/Widget.MaterialComponents.Button"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"

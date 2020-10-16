@@ -4,9 +4,10 @@
     <string name="home_intencje_i_ogloszenia">Intencje i Ogłoszenia</string>
     <string name="home_kalndarium">Kalndarium</string>
     <string name="home_informacje_ogolne">Informacje ogólne</string>
-    <string name="home_liturgia">Liturgia</string>
+    <string name="home_grupy">Grupy</string>
     <string name="home_niezbedniki">Niezbędniki</string>
     <string name="home_kontakt">Kontakt</string>
     <string name="notification_ogloszenie_title" tools:ignore="Typos">Nowe Ogłoszenie!</string>
     <string name="notification_ogloszenie_text" tools:ignore="Typos">Sprawdź nowe ogłoszenia i intencje w aplikacji!</string>
+    <string name="grupy">Grupy</string>
 </resources>

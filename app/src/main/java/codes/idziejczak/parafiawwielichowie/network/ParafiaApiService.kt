@@ -33,6 +33,9 @@ interface ParafiaApiService {
 
     @GET("ogloszeniaparafialne.html")
     suspend fun getIdOgloszenia(): Document
+
+    @GET("grupy_22.html")
+    suspend fun getGrupy(): Document
 }
 
 object ParafiaApi {

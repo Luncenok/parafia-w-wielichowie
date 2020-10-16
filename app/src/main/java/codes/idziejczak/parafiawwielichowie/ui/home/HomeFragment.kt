@@ -34,7 +34,15 @@ class HomeFragment : Fragment() {
             if (it == true) {
                 this.findNavController()
                     .navigate(HomeFragmentDirections.actionHomeFragmentToOgloszeniaFragment())
-                viewModel.doneNavigating()
+                viewModel.doneNavigatingOgloszenia()
+            }
+        })
+
+        viewModel.navigateToLiturgia.observe(viewLifecycleOwner, {
+            if (it == true) {
+                this.findNavController()
+                    .navigate(HomeFragmentDirections.actionHomeFragmentToLiturgiaFragment())
+                viewModel.doneNavigatingLiturgia()
             }
         })
 

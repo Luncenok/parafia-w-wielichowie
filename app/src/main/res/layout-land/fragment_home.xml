@@ -57,14 +57,14 @@
                     app:layout_constraintVertical_weight="1">
 
                     <Button
-                        style="@style/Widget.MaterialComponents.Button.Icon"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="5dp"
-                        android:onClick="@{() -> viewModel.beginNavigate()}"
+                        android:onClick="@{() -> viewModel.beginNavigateOgloszenia()}"
                         android:text="@string/home_intencje_i_ogloszenia"
                         android:textStyle="bold"
                         app:icon="@drawable/ic_sun"
@@ -88,7 +88,7 @@
                     app:layout_constraintVertical_weight="1">
 
                     <Button
-                        style="@style/Widget.MaterialComponents.Button"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
@@ -118,7 +118,7 @@
                     app:layout_constraintVertical_weight="1">
 
                     <Button
-                        style="@style/Widget.MaterialComponents.Button"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
@@ -162,14 +162,14 @@
                     app:layout_constraintVertical_weight="1">
 
                     <Button
-                        style="@style/Widget.MaterialComponents.Button"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="5dp"
-                        android:text="@string/home_liturgia"
+                        android:text="@string/home_grupy"
                         android:textStyle="bold"
                         app:icon="@drawable/ic_book"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -192,7 +192,7 @@
                     app:layout_constraintVertical_weight="1">
 
                     <Button
-                        style="@style/Widget.MaterialComponents.Button"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"
@@ -222,7 +222,7 @@
                     app:layout_constraintVertical_weight="1">
 
                     <Button
-                        style="@style/Widget.MaterialComponents.Button"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginStart="10dp"

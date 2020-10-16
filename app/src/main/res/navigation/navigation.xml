@@ -10,6 +10,9 @@
         <action
             android:id="@+id/action_homeFragment_to_ogloszeniaFragment"
             app:destination="@id/ogloszeniaFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_liturgiaFragment"
+            app:destination="@id/liturgiaFragment" />
     </fragment>
     <fragment
         android:id="@+id/ogloszeniaFragment"
@@ -17,6 +20,15 @@
         android:label="OgloszeniaFragment">
         <action
             android:id="@+id/action_ogloszeniaFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/liturgiaFragment"
+        android:name="codes.idziejczak.parafiawwielichowie.ui.grupy.GrupyFragment"
+        android:label="LiturgiaFragment">
+        <action
+            android:id="@+id/action_liturgiaFragment_to_homeFragment"
             app:destination="@id/homeFragment"
             app:popUpTo="@id/homeFragment" />
     </fragment>

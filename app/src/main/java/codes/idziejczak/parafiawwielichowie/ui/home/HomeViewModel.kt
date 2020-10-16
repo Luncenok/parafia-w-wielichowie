@@ -11,12 +11,24 @@ class HomeViewModel : ViewModel() {
     val navigateToOgloszenia: LiveData<Boolean?>
         get() = _navigateToOgloszenia
 
-    fun beginNavigate() {
+    private val _navigateToLiturgia = MutableLiveData<Boolean?>()
+    val navigateToLiturgia: LiveData<Boolean?>
+        get() = _navigateToLiturgia
+
+    fun beginNavigateOgloszenia() {
         _navigateToOgloszenia.value = true
     }
 
-    fun doneNavigating() {
+    fun beginNavigateLiturgia() {
+        _navigateToLiturgia.value = true
+    }
+
+    fun doneNavigatingOgloszenia() {
         _navigateToOgloszenia.value = null
+    }
+
+    fun doneNavigatingLiturgia() {
+        _navigateToLiturgia.value = null
     }
 
     class Factory : ViewModelProvider.Factory {
