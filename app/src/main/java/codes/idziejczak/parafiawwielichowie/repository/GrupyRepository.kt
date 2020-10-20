@@ -1,11 +1,10 @@
 package codes.idziejczak.parafiawwielichowie.repository
 
 import codes.idziejczak.parafiawwielichowie.database.AppDatabase
-import codes.idziejczak.parafiawwielichowie.database.Grupy
+import codes.idziejczak.parafiawwielichowie.database.entities.Grupy
 import codes.idziejczak.parafiawwielichowie.network.ParafiaApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import timber.log.Timber
 
 class GrupyRepository(private val database: AppDatabase) {
 
@@ -22,7 +21,6 @@ class GrupyRepository(private val database: AppDatabase) {
                         ""
                     )
                     .replace("</p>", "</p><br>")
-            Timber.tag("loggo").d(stringSpanned)
             database.grupyDatabaseDao.insert(
                 Grupy(
                     id = 1,

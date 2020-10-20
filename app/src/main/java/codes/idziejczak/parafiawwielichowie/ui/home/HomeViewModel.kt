@@ -11,24 +11,36 @@ class HomeViewModel : ViewModel() {
     val navigateToOgloszenia: LiveData<Boolean?>
         get() = _navigateToOgloszenia
 
-    private val _navigateToLiturgia = MutableLiveData<Boolean?>()
-    val navigateToLiturgia: LiveData<Boolean?>
-        get() = _navigateToLiturgia
+    private val _navigateToKalendarium = MutableLiveData<Boolean?>()
+    val navigateToKalendarium: LiveData<Boolean?>
+        get() = _navigateToKalendarium
+
+    private val _navigateToGrupy = MutableLiveData<Boolean?>()
+    val navigateToGrupy: LiveData<Boolean?>
+        get() = _navigateToGrupy
 
     fun beginNavigateOgloszenia() {
         _navigateToOgloszenia.value = true
     }
 
-    fun beginNavigateLiturgia() {
-        _navigateToLiturgia.value = true
+    fun beginNavigateKalendarium() {
+        _navigateToKalendarium.value = true
+    }
+
+    fun beginNavigateGrupy() {
+        _navigateToGrupy.value = true
     }
 
     fun doneNavigatingOgloszenia() {
         _navigateToOgloszenia.value = null
     }
 
-    fun doneNavigatingLiturgia() {
-        _navigateToLiturgia.value = null
+    fun doneNavigatingKalendarium() {
+        _navigateToKalendarium.value = null
+    }
+
+    fun doneNavigatingGrupy() {
+        _navigateToGrupy.value = null
     }
 
     class Factory : ViewModelProvider.Factory {

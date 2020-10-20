@@ -38,11 +38,19 @@ class HomeFragment : Fragment() {
             }
         })
 
-        viewModel.navigateToLiturgia.observe(viewLifecycleOwner, {
+        viewModel.navigateToGrupy.observe(viewLifecycleOwner, {
             if (it == true) {
                 this.findNavController()
-                    .navigate(HomeFragmentDirections.actionHomeFragmentToLiturgiaFragment())
-                viewModel.doneNavigatingLiturgia()
+                    .navigate(HomeFragmentDirections.actionHomeFragmentToGrupyFragment())
+                viewModel.doneNavigatingGrupy()
+            }
+        })
+
+        viewModel.navigateToKalendarium.observe(viewLifecycleOwner, {
+            if (it == true) {
+                this.findNavController()
+                    .navigate(HomeFragmentDirections.actionHomeFragmentToKalendariumFragment())
+                viewModel.doneNavigatingKalendarium()
             }
         })
 

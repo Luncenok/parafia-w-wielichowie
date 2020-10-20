@@ -36,6 +36,9 @@ interface ParafiaApiService {
 
     @GET("grupy_22.html")
     suspend fun getGrupy(): Document
+
+    @GET("kalendarium.html")
+    suspend fun getKalendarium(): Document
 }
 
 object ParafiaApi {

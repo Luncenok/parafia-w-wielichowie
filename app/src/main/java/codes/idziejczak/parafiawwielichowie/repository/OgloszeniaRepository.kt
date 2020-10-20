@@ -2,7 +2,7 @@ package codes.idziejczak.parafiawwielichowie.repository
 
 import androidx.lifecycle.LiveData
 import codes.idziejczak.parafiawwielichowie.database.AppDatabase
-import codes.idziejczak.parafiawwielichowie.database.Ogloszenie
+import codes.idziejczak.parafiawwielichowie.database.entities.Ogloszenie
 import codes.idziejczak.parafiawwielichowie.network.ParafiaApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

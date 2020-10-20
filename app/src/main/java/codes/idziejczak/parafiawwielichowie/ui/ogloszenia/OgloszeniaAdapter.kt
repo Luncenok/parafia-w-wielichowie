@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import codes.idziejczak.parafiawwielichowie.R
-import codes.idziejczak.parafiawwielichowie.database.Ogloszenie
+import codes.idziejczak.parafiawwielichowie.database.entities.Ogloszenie
 import codes.idziejczak.parafiawwielichowie.databinding.ListItemOgloszenieBinding
 
 class OgloszeniaAdapter :

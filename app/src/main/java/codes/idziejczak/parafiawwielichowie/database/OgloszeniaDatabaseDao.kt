@@ -2,6 +2,7 @@ package codes.idziejczak.parafiawwielichowie.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import codes.idziejczak.parafiawwielichowie.database.entities.Ogloszenie
 
 @Dao
 interface OgloszeniaDatabaseDao {

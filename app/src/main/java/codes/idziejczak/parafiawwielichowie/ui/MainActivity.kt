@@ -15,7 +15,8 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             title = when (destination.id) {
                 R.id.ogloszeniaFragment -> getString(R.string.home_intencje_i_ogloszenia)
-                R.id.liturgiaFragment -> getString(R.string.grupy)
+                R.id.grupyFragment -> getString(R.string.home_grupy)
+                R.id.kalendariumFragment -> getString(R.string.home_kalendarium)
                 else -> getString(R.string.app_name)
             }
             destination.label = title

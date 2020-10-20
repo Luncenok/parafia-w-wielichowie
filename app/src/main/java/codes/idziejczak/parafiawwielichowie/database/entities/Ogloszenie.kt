@@ -1,4 +1,4 @@
-package codes.idziejczak.parafiawwielichowie.database
+package codes.idziejczak.parafiawwielichowie.database.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
