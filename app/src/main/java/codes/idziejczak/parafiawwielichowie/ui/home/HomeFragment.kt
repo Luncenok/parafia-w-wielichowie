@@ -54,6 +54,14 @@ class HomeFragment : Fragment() {
             }
         })
 
+        viewModel.navigateToNiezbedniki.observe(viewLifecycleOwner, {
+            if (it == true) {
+                this.findNavController()
+                    .navigate(HomeFragmentDirections.actionHomeFragmentToNiezbednikiFragment())
+                viewModel.doneNavigatingNiezbedniki()
+            }
+        })
+
         return binding.root
     }
 

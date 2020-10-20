@@ -19,6 +19,10 @@ class HomeViewModel : ViewModel() {
     val navigateToGrupy: LiveData<Boolean?>
         get() = _navigateToGrupy
 
+    private val _navigateToNiezbedniki = MutableLiveData<Boolean?>()
+    val navigateToNiezbedniki: LiveData<Boolean?>
+        get() = _navigateToNiezbedniki
+
     fun beginNavigateOgloszenia() {
         _navigateToOgloszenia.value = true
     }
@@ -31,6 +35,10 @@ class HomeViewModel : ViewModel() {
         _navigateToGrupy.value = true
     }
 
+    fun beginNavigateNiezbedniki() {
+        _navigateToNiezbedniki.value = true
+    }
+
     fun doneNavigatingOgloszenia() {
         _navigateToOgloszenia.value = null
     }
@@ -41,6 +49,10 @@ class HomeViewModel : ViewModel() {
 
     fun doneNavigatingGrupy() {
         _navigateToGrupy.value = null
+    }
+
+    fun doneNavigatingNiezbedniki() {
+        _navigateToNiezbedniki.value = null
     }
 
     class Factory : ViewModelProvider.Factory {
