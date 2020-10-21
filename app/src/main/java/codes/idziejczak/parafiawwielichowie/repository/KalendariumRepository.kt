@@ -20,7 +20,7 @@ class KalendariumRepository(private val database: AppDatabase) {
                         ""
                     )
                     .replace("<td>&nbsp;&nbsp;</td>", "")
-                    .replace("<td ", "<span>&nbsp;&nbsp;</span><span ")
+                    .replace("<td ", "<span ")
                     .replace("<td>", "<span>&nbsp;&nbsp;</span><span>")
                     .replace("</td>", "</span>")
                     .replace("<tr>", "<span>")
@@ -34,7 +34,7 @@ class KalendariumRepository(private val database: AppDatabase) {
                         ""
                     )
                     .replace("<td>&nbsp;&nbsp;</td>", "")
-                    .replace("<td ", "<span>&nbsp;&nbsp;</span><span ")
+                    .replace("<td ", "<span ")
                     .replace("<td>", "<span>&nbsp;&nbsp;</span><span>")
                     .replace("</td>", "</span>")
                     .replace("<tr>", "<span>")
