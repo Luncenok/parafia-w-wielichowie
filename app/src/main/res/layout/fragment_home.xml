@@ -150,6 +150,7 @@
                         android:text="@string/home_informacje_ogolne"
                         app:icon="@drawable/ic_question_mark"
                         android:textStyle="bold"
+                        android:onClick="@{() -> viewModel.beginNavigateInformacje()}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"

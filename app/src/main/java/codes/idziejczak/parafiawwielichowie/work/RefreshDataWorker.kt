@@ -9,10 +9,7 @@ import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import codes.idziejczak.parafiawwielichowie.R
 import codes.idziejczak.parafiawwielichowie.database.AppDatabase
-import codes.idziejczak.parafiawwielichowie.repository.GrupyRepository
-import codes.idziejczak.parafiawwielichowie.repository.KalendariumRepository
-import codes.idziejczak.parafiawwielichowie.repository.NiezbednikiRepository
-import codes.idziejczak.parafiawwielichowie.repository.OgloszeniaRepository
+import codes.idziejczak.parafiawwielichowie.repository.*
 import codes.idziejczak.parafiawwielichowie.ui.MainActivity
 import retrofit2.HttpException
 import kotlin.random.Random
@@ -30,12 +27,14 @@ class RefreshDataWorker(context: Context, parameters: WorkerParameters) :
         val grupyRepository = GrupyRepository(database)
         val kalendariumRepository = KalendariumRepository(database)
         val niezbednikiRepository = NiezbednikiRepository(database)
+        val informacjeRepository = InformacjeRepository(database)
 
         try {
             ogloszeniaRepository.refreshOglosznenia()
             grupyRepository.refreshGrupy()
             kalendariumRepository.refreshKalendarium()
             niezbednikiRepository.refreshNiezbedniki()
+            informacjeRepository.refreshInformacje()
             ogloszeniaRepository.getgloszenia().let {
                 if (it.first().notify) {
                     val notificationManager = ContextCompat.getSystemService(

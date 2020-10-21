@@ -128,6 +128,7 @@
                         android:layout_marginBottom="5dp"
                         android:text="@string/home_informacje_ogolne"
                         android:textStyle="bold"
+                        android:onClick="@{() -> viewModel.beginNavigateInformacje()}"
                         app:icon="@drawable/ic_question_mark"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
