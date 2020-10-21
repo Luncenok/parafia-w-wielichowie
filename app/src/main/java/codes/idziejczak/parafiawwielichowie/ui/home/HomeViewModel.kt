@@ -23,6 +23,10 @@ class HomeViewModel : ViewModel() {
     val navigateToNiezbedniki: LiveData<Boolean?>
         get() = _navigateToNiezbedniki
 
+    private val _navigateToInformacje = MutableLiveData<Boolean?>()
+    val navigateToInformacje: LiveData<Boolean?>
+        get() = _navigateToInformacje
+
     fun beginNavigateOgloszenia() {
         _navigateToOgloszenia.value = true
     }
@@ -39,6 +43,10 @@ class HomeViewModel : ViewModel() {
         _navigateToNiezbedniki.value = true
     }
 
+    fun beginNavigateInformacje() {
+        _navigateToInformacje.value = true
+    }
+
     fun doneNavigatingOgloszenia() {
         _navigateToOgloszenia.value = null
     }
@@ -53,6 +61,10 @@ class HomeViewModel : ViewModel() {
 
     fun doneNavigatingNiezbedniki() {
         _navigateToNiezbedniki.value = null
+    }
+
+    fun doneNavigatingInformacje() {
+        _navigateToInformacje.value = null
     }
 
     class Factory : ViewModelProvider.Factory {

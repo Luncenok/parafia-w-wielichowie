@@ -4,13 +4,15 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import codes.idziejczak.parafiawwielichowie.database.entities.Grupy
-import codes.idziejczak.parafiawwielichowie.database.entities.Kalendarium
-import codes.idziejczak.parafiawwielichowie.database.entities.Niezbedniki
-import codes.idziejczak.parafiawwielichowie.database.entities.Ogloszenie
+import codes.idziejczak.parafiawwielichowie.database.entities.*
 
 @Database(
-    entities = [Ogloszenie::class, Grupy::class, Kalendarium::class, Niezbedniki::class],
+    entities = [
+        Ogloszenie::class,
+        Grupy::class,
+        Kalendarium::class,
+        Niezbedniki::class,
+        Informacje::class],
     version = 1,
     exportSchema = false
 )
@@ -19,6 +21,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract val grupyDatabaseDao: GrupyDatabaseDao
     abstract val kalendariumDatabaseDao: KalendariumDatabaseDao
     abstract val niezbednikiDatabaseDao: NiezbednikiDatabaseDao
+    abstract val informacjeDatabaseDao: InformacjeDatabaseDao
 
     companion object {
         @Volatile

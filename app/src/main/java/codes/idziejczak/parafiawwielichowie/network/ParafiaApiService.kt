@@ -28,6 +28,10 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface ParafiaApiService {
+
+    @GET(BASE_URL)
+    suspend fun getInformacje(): Document
+
     @GET("ogloszenia,parafialne,{id}.html")
     suspend fun getOgloszenie(@Path("id") id: String): Document
 

@@ -21,6 +21,9 @@
         <action
             android:id="@+id/action_homeFragment_to_niezbednikiFragment"
             app:destination="@id/niezbednikiFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_informacjeFragment"
+            app:destination="@id/informacjeFragment" />
     </fragment>
     <fragment
         android:id="@+id/ogloszeniaFragment"
@@ -58,6 +61,16 @@
         tools:layout="@layout/fragment_niezbedniki">
         <action
             android:id="@+id/action_niezbednikiFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/informacjeFragment"
+        android:name="codes.idziejczak.parafiawwielichowie.ui.informacje.InformacjeFragment"
+        android:label="InformacjeFragment"
+        tools:layout="@layout/fragment_informacje">
+        <action
+            android:id="@+id/action_informacjeFragment_to_homeFragment"
             app:destination="@id/homeFragment"
             app:popUpTo="@id/homeFragment" />
     </fragment>

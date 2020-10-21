@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.grupyFragment -> getString(R.string.home_grupy)
                 R.id.kalendariumFragment -> getString(R.string.home_kalendarium)
                 R.id.niezbednikiFragment -> getString(R.string.home_niezbedniki)
+                R.id.informacjeFragment -> getString(R.string.home_informacje_ogolne)
                 else -> getString(R.string.app_name)
             }
             destination.label = title
