@@ -19,11 +19,13 @@ class KalendariumRepository(private val database: AppDatabase) {
                         "<img style=\"border:0px;\" src=\"images/zobacz.gif\" width=\"17\" height=\"27\" alt=\"zobacz\">",
                         ""
                     )
-                    .replace("<td ", "<span ")
+                    .replace("<td>&nbsp;&nbsp;</td>", "")
+                    .replace("<td ", "<span>&nbsp;&nbsp;</span><span ")
+                    .replace("<td>", "<span>&nbsp;&nbsp;</span><span>")
                     .replace("</td>", "</span>")
                     .replace("<tr>", "<span>")
                     .replace("</tr>", "</span><br>")
-                    .replace("<a", "<p")
+                    .replace("<a href=\"", "<span><a href=\"https://parafiawielichowo.pl/")
                     .replace("<span class=\"g\" width=\"50px\"><b>zobacz</b></span>", "")
             val stringSpanned2 =
                 "<h3>Rocznica urodzin</h3>" + documentResult.select(".wykaz").last().toString()
@@ -31,11 +33,13 @@ class KalendariumRepository(private val database: AppDatabase) {
                         "<img style=\"border:0px;\" src=\"images/zobacz.gif\" width=\"17\" height=\"27\" alt=\"zobacz\">",
                         ""
                     )
-                    .replace("<td ", "<span ")
+                    .replace("<td>&nbsp;&nbsp;</td>", "")
+                    .replace("<td ", "<span>&nbsp;&nbsp;</span><span ")
+                    .replace("<td>", "<span>&nbsp;&nbsp;</span><span>")
                     .replace("</td>", "</span>")
                     .replace("<tr>", "<span>")
                     .replace("</tr>", "</span><br>")
-                    .replace("<a", "<p")
+                    .replace("<a href=\"", "<span><a href=\"https://parafiawielichowo.pl/")
                     .replace("<span class=\"g\" width=\"50px\"><b>zobacz</b></span>", "")
             database.kalendariumDatabaseDao.insert(
                 Kalendarium(

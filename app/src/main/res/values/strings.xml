@@ -9,4 +9,5 @@
     <string name="home_kontakt">Kontakt</string>
     <string name="notification_ogloszenie_title" tools:ignore="Typos">Nowe Ogłoszenie!</string>
     <string name="notification_ogloszenie_text" tools:ignore="Typos">Sprawdź nowe ogłoszenia i intencje w aplikacji!</string>
+    <string name="network_error">Wystąpił błąd sieci</string>
 </resources>

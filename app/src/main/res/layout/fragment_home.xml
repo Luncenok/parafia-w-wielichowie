@@ -257,6 +257,7 @@
                         android:text="@string/home_kontakt"
                         app:icon="@drawable/ic_email"
                         android:textStyle="bold"
+                        android:onClick="@{() -> viewModel.beginNavigateKontakt()}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"

@@ -38,6 +38,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
+                    android:id="@+id/grupy_tekst"
                     android:textColor="?attr/colorOnPrimary"
                     android:textSize="20sp"
                     tools:text="@{viewModel.tekst}" />

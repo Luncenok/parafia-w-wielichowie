@@ -49,6 +49,9 @@ interface ParafiaApiService {
 
     @GET("porady_6.html")
     suspend fun getPorady(): Document
+
+    @GET("kontakt_7.html")
+    suspend fun getKontakt(): Document
 }
 
 object ParafiaApi {

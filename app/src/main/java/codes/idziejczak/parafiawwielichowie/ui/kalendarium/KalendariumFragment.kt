@@ -1,6 +1,7 @@
 package codes.idziejczak.parafiawwielichowie.ui.kalendarium
 
 import android.os.Bundle
+import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,9 +27,13 @@ class KalendariumFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
+        binding.kalendariumSmierciTekst.movementMethod = LinkMovementMethod.getInstance()
+        binding.kalendariumUrodzinTekst.movementMethod = LinkMovementMethod.getInstance()
+
         viewModel.eventNetworkError.observe(viewLifecycleOwner, {
             if (it == true && !viewModel.isErrorNetworkShown.value!!) {
-                Toast.makeText(activity, "Network Error", Toast.LENGTH_LONG).show()
+                Toast.makeText(activity, getString(R.string.network_error), Toast.LENGTH_LONG)
+                    .show()
                 viewModel.onNetworkErrorShown()
             }
         })
