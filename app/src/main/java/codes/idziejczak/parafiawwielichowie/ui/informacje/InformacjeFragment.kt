@@ -11,6 +11,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import codes.idziejczak.parafiawwielichowie.R
 import codes.idziejczak.parafiawwielichowie.databinding.FragmentInformacjeBinding
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.RequestConfiguration
 
 class InformacjeFragment : Fragment() {
 
@@ -30,6 +33,15 @@ class InformacjeFragment : Fragment() {
         binding.viewModel = viewModel
 
         binding.informacjeTekst.movementMethod = LinkMovementMethod.getInstance()
+
+        val req = RequestConfiguration.Builder()
+            .setTestDeviceIds(listOf("6BAFF71222ABE5046B2841CF75F38B42")).build()
+        MobileAds.setRequestConfiguration(req)
+
+        MobileAds.initialize(context) {}
+
+        val adRequest = AdRequest.Builder().build()
+        binding.adView.loadAd(adRequest)
 
         viewModel.eventNetworkError.observe(viewLifecycleOwner, {
             if (it == true && !viewModel.isErrorNetworkShown.value!!) {

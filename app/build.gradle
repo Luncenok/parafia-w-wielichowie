@@ -101,4 +101,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-inappmessaging-ktx'
     implementation 'com.google.firebase:firebase-inappmessaging-display-ktx'
 
+    // Ads
+    implementation 'com.google.android.gms:play-services-ads:19.5.0'
+
 }
