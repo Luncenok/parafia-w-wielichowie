@@ -69,7 +69,7 @@ class HomeFragment : Fragment() {
                 viewModel.doneNavigatingInformacje()
             }
         })
-
+      
         return binding.root
     }
 
