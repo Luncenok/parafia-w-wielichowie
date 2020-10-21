@@ -200,6 +200,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginEnd="10dp"
                         android:layout_marginBottom="5dp"
+                        android:onClick="@{() -> viewModel.beginNavigateNiezbedniki()}"
                         android:text="@string/home_niezbedniki"
                         android:textStyle="bold"
                         app:icon="@drawable/ic_library_books"

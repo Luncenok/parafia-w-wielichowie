@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation.xml"
     app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/homeFragment"
         android:name="codes.idziejczak.parafiawwielichowie.ui.home.HomeFragment"
-        android:label="HomeFragment">
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_ogloszeniaFragment"
             app:destination="@id/ogloszeniaFragment" />
@@ -16,11 +18,15 @@
         <action
             android:id="@+id/action_homeFragment_to_kalendariumFragment"
             app:destination="@id/kalendariumFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_niezbednikiFragment"
+            app:destination="@id/niezbednikiFragment" />
     </fragment>
     <fragment
         android:id="@+id/ogloszeniaFragment"
         android:name="codes.idziejczak.parafiawwielichowie.ui.ogloszenia.OgloszeniaFragment"
-        android:label="OgloszeniaFragment">
+        android:label="OgloszeniaFragment"
+        tools:layout="@layout/fragment_ogloszenia">
         <action
             android:id="@+id/action_ogloszeniaFragment_to_homeFragment"
             app:destination="@id/homeFragment"
@@ -29,7 +35,8 @@
     <fragment
         android:id="@+id/grupyFragment"
         android:name="codes.idziejczak.parafiawwielichowie.ui.grupy.GrupyFragment"
-        android:label="GrupyFragment">
+        android:label="GrupyFragment"
+        tools:layout="@layout/fragment_grupy">
         <action
             android:id="@+id/action_grupyFragment_to_homeFragment"
             app:destination="@id/homeFragment"
@@ -38,9 +45,20 @@
     <fragment
         android:id="@+id/kalendariumFragment"
         android:name="codes.idziejczak.parafiawwielichowie.ui.kalendarium.KalendariumFragment"
-        android:label="KalendariumFragment">
+        android:label="KalendariumFragment"
+        tools:layout="@layout/fragment_kalendarium">
         <action
             android:id="@+id/action_kalendariumFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/niezbednikiFragment"
+        android:name="codes.idziejczak.parafiawwielichowie.ui.niezbedniki.NiezbednikiFragment"
+        android:label="NiezbednikiFragment"
+        tools:layout="@layout/fragment_niezbedniki">
+        <action
+            android:id="@+id/action_niezbednikiFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment" />
     </fragment>
 </navigation>

@@ -11,6 +11,7 @@ import codes.idziejczak.parafiawwielichowie.R
 import codes.idziejczak.parafiawwielichowie.database.AppDatabase
 import codes.idziejczak.parafiawwielichowie.repository.GrupyRepository
 import codes.idziejczak.parafiawwielichowie.repository.KalendariumRepository
+import codes.idziejczak.parafiawwielichowie.repository.NiezbednikiRepository
 import codes.idziejczak.parafiawwielichowie.repository.OgloszeniaRepository
 import codes.idziejczak.parafiawwielichowie.ui.MainActivity
 import retrofit2.HttpException
@@ -28,11 +29,13 @@ class RefreshDataWorker(context: Context, parameters: WorkerParameters) :
         val ogloszeniaRepository = OgloszeniaRepository(database)
         val grupyRepository = GrupyRepository(database)
         val kalendariumRepository = KalendariumRepository(database)
+        val niezbednikiRepository = NiezbednikiRepository(database)
 
         try {
             ogloszeniaRepository.refreshOglosznenia()
             grupyRepository.refreshGrupy()
             kalendariumRepository.refreshKalendarium()
+            niezbednikiRepository.refreshNiezbedniki()
             ogloszeniaRepository.getgloszenia().let {
                 if (it.first().notify) {
                     val notificationManager = ContextCompat.getSystemService(
