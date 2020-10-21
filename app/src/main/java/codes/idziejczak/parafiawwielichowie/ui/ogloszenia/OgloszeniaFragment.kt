@@ -37,7 +37,8 @@ class OgloszeniaFragment : Fragment() {
 
         viewModel.eventNetworkError.observe(viewLifecycleOwner, {
             if (it == true && !viewModel.isErrorNetworkShown.value!!) {
-                Toast.makeText(activity, "Network Error", Toast.LENGTH_LONG).show()
+                Toast.makeText(activity, getString(R.string.network_error), Toast.LENGTH_LONG)
+                    .show()
                 viewModel.onNetworkErrorShown()
             }
         })

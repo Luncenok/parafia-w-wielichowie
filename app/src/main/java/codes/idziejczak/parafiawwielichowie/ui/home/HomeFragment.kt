@@ -69,7 +69,15 @@ class HomeFragment : Fragment() {
                 viewModel.doneNavigatingInformacje()
             }
         })
-      
+
+        viewModel.navigateToKontakt.observe(viewLifecycleOwner, {
+            if (it == true) {
+                this.findNavController()
+                    .navigate(HomeFragmentDirections.actionHomeFragmentToKontaktFragment())
+                viewModel.doneNavigatingKontakt()
+            }
+        })
+
         return binding.root
     }
 

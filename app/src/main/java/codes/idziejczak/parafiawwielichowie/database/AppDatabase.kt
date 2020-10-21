@@ -12,7 +12,8 @@ import codes.idziejczak.parafiawwielichowie.database.entities.*
         Grupy::class,
         Kalendarium::class,
         Niezbedniki::class,
-        Informacje::class],
+        Informacje::class,
+        Kontakt::class],
     version = 1,
     exportSchema = false
 )
@@ -22,6 +23,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract val kalendariumDatabaseDao: KalendariumDatabaseDao
     abstract val niezbednikiDatabaseDao: NiezbednikiDatabaseDao
     abstract val informacjeDatabaseDao: InformacjeDatabaseDao
+    abstract val kontaktDatabaseDao: KontaktDatabaseDao
 
     companion object {
         @Volatile

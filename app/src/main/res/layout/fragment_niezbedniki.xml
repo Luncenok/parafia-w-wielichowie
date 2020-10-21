@@ -47,6 +47,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
+                        android:id="@+id/niezbedniki_narzeczeni_tekst"
                         android:text="@{viewModel.narzeczeniIChrzestni}"
                         android:textColor="?attr/colorOnPrimary"
                         android:textSize="20sp" />
@@ -73,6 +74,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="10dp"
+                        android:id="@+id/niezbedniki_zmarli_tekst"
                         android:text="@{viewModel.zmarli}"
                         android:textColor="?attr/colorOnPrimary"
                         android:textSize="20sp" />

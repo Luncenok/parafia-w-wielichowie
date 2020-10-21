@@ -28,6 +28,7 @@ class RefreshDataWorker(context: Context, parameters: WorkerParameters) :
         val kalendariumRepository = KalendariumRepository(database)
         val niezbednikiRepository = NiezbednikiRepository(database)
         val informacjeRepository = InformacjeRepository(database)
+        val kontaktRepository = KontaktRepository(database)
 
         try {
             ogloszeniaRepository.refreshOglosznenia()
@@ -35,6 +36,7 @@ class RefreshDataWorker(context: Context, parameters: WorkerParameters) :
             kalendariumRepository.refreshKalendarium()
             niezbednikiRepository.refreshNiezbedniki()
             informacjeRepository.refreshInformacje()
+            kontaktRepository.refreshKontakt()
             ogloszeniaRepository.getgloszenia().let {
                 if (it.first().notify) {
                     val notificationManager = ContextCompat.getSystemService(

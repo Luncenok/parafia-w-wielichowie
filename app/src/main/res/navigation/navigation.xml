@@ -24,6 +24,9 @@
         <action
             android:id="@+id/action_homeFragment_to_informacjeFragment"
             app:destination="@id/informacjeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_kontaktFragment"
+            app:destination="@id/kontaktFragment" />
     </fragment>
     <fragment
         android:id="@+id/ogloszeniaFragment"
@@ -71,6 +74,16 @@
         tools:layout="@layout/fragment_informacje">
         <action
             android:id="@+id/action_informacjeFragment_to_homeFragment"
+            app:destination="@id/homeFragment"
+            app:popUpTo="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/kontaktFragment"
+        android:name="codes.idziejczak.parafiawwielichowie.ui.kontakt.KontaktFragment"
+        android:label="KontaktFragment"
+        tools:layout="@layout/fragment_kontakt">
+        <action
+            android:id="@+id/action_kontaktFragment_to_homeFragment"
             app:destination="@id/homeFragment"
             app:popUpTo="@id/homeFragment" />
     </fragment>

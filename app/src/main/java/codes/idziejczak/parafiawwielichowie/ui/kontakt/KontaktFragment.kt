@@ -1,4 +1,4 @@
-package codes.idziejczak.parafiawwielichowie.ui.niezbedniki
+package codes.idziejczak.parafiawwielichowie.ui.kontakt
 
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
@@ -10,26 +10,25 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import codes.idziejczak.parafiawwielichowie.R
-import codes.idziejczak.parafiawwielichowie.databinding.FragmentNiezbednikiBinding
+import codes.idziejczak.parafiawwielichowie.databinding.FragmentKontaktBinding
 
-class NiezbednikiFragment : Fragment() {
+class KontaktFragment : Fragment() {
 
-    private lateinit var viewModel: NiezbednikiViewModel
+    private lateinit var viewModel: KontaktViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val application = requireActivity().application
-        val viewModelFactory = NiezbednikiViewModel.Factory(application)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(NiezbednikiViewModel::class.java)
-        val binding: FragmentNiezbednikiBinding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_niezbedniki, container, false)
+        val viewModelFactory = KontaktViewModel.Factory(application)
+        viewModel = ViewModelProvider(this, viewModelFactory).get(KontaktViewModel::class.java)
+        val binding: FragmentKontaktBinding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_kontakt, container, false)
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
 
-        binding.niezbednikiNarzeczeniTekst.movementMethod = LinkMovementMethod.getInstance()
-        binding.niezbednikiZmarliTekst.movementMethod = LinkMovementMethod.getInstance()
+        binding.kontaktTekst.movementMethod = LinkMovementMethod.getInstance()
 
         viewModel.eventNetworkError.observe(viewLifecycleOwner, {
             if (it == true && !viewModel.isErrorNetworkShown.value!!) {
