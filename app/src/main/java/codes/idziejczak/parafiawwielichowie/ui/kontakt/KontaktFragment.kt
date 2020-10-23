@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import codes.idziejczak.parafiawwielichowie.R
 import codes.idziejczak.parafiawwielichowie.databinding.FragmentKontaktBinding
+import com.google.ads.mediation.admob.AdMobAdapter
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.MobileAds
 import com.google.android.gms.ads.RequestConfiguration
@@ -39,7 +40,10 @@ class KontaktFragment : Fragment() {
 
         MobileAds.initialize(context) {}
 
-        val adRequest = AdRequest.Builder().build()
+        val extras = Bundle()
+        extras.putString("npa", "1")
+        val adRequest =
+            AdRequest.Builder().addNetworkExtrasBundle(AdMobAdapter::class.java, extras).build()
         binding.adView.loadAd(adRequest)
 
         viewModel.eventNetworkError.observe(viewLifecycleOwner, {
