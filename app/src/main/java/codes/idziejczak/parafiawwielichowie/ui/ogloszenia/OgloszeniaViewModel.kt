@@ -48,7 +48,7 @@ class OgloszeniaViewModel(application: Application) :
     class Factory(
         private val application: Application
     ) : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
             @Suppress("UNCHECKED_CAST")
             if (modelClass.isAssignableFrom(OgloszeniaViewModel::class.java))
                 return OgloszeniaViewModel(application) as T

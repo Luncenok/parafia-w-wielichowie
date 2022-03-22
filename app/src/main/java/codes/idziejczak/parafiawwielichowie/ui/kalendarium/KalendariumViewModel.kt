@@ -57,7 +57,7 @@ class KalendariumViewModel(application: Application) : AndroidViewModel(applicat
     }
 
     class Factory(private val application: Application) : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
             @Suppress("UNCHECKED_CAST")
             if (modelClass.isAssignableFrom(KalendariumViewModel::class.java))
                 return KalendariumViewModel(application) as T

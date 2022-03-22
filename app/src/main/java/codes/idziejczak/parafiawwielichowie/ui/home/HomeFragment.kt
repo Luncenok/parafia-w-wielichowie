@@ -23,60 +23,60 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         val binding: FragmentHomeBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
 
-        viewModel.navigateToOgloszenia.observe(viewLifecycleOwner, {
+        viewModel.navigateToOgloszenia.observe(viewLifecycleOwner) {
             if (it == true) {
                 this.findNavController()
                     .navigate(HomeFragmentDirections.actionHomeFragmentToOgloszeniaFragment())
                 viewModel.doneNavigatingOgloszenia()
             }
-        })
+        }
 
-        viewModel.navigateToGrupy.observe(viewLifecycleOwner, {
+        viewModel.navigateToGrupy.observe(viewLifecycleOwner) {
             if (it == true) {
                 this.findNavController()
                     .navigate(HomeFragmentDirections.actionHomeFragmentToGrupyFragment())
                 viewModel.doneNavigatingGrupy()
             }
-        })
+        }
 
-        viewModel.navigateToKalendarium.observe(viewLifecycleOwner, {
+        viewModel.navigateToKalendarium.observe(viewLifecycleOwner) {
             if (it == true) {
                 this.findNavController()
                     .navigate(HomeFragmentDirections.actionHomeFragmentToKalendariumFragment())
                 viewModel.doneNavigatingKalendarium()
             }
-        })
+        }
 
-        viewModel.navigateToNiezbedniki.observe(viewLifecycleOwner, {
+        viewModel.navigateToNiezbedniki.observe(viewLifecycleOwner) {
             if (it == true) {
                 this.findNavController()
                     .navigate(HomeFragmentDirections.actionHomeFragmentToNiezbednikiFragment())
                 viewModel.doneNavigatingNiezbedniki()
             }
-        })
+        }
 
-        viewModel.navigateToInformacje.observe(viewLifecycleOwner, {
+        viewModel.navigateToInformacje.observe(viewLifecycleOwner) {
             if (it == true) {
                 this.findNavController()
                     .navigate(HomeFragmentDirections.actionHomeFragmentToInformacjeFragment())
                 viewModel.doneNavigatingInformacje()
             }
-        })
+        }
 
-        viewModel.navigateToKontakt.observe(viewLifecycleOwner, {
+        viewModel.navigateToKontakt.observe(viewLifecycleOwner) {
             if (it == true) {
                 this.findNavController()
                     .navigate(HomeFragmentDirections.actionHomeFragmentToKontaktFragment())
                 viewModel.doneNavigatingKontakt()
             }
-        })
+        }
 
         return binding.root
     }

@@ -53,7 +53,7 @@ class GrupyViewModel(application: Application) : AndroidViewModel(application) {
     class Factory(
         private val application: Application
     ) : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
             @Suppress("UNCHECKED_CAST")
             if (modelClass.isAssignableFrom(GrupyViewModel::class.java))
                 return GrupyViewModel(application) as T

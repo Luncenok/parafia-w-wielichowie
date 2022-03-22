@@ -21,7 +21,7 @@ class KalendariumFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val viewModelFactory = KalendariumViewModel.Factory(requireActivity().application)
         val viewModel =
             ViewModelProvider(this, viewModelFactory).get(KalendariumViewModel::class.java)

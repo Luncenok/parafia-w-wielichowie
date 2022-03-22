@@ -21,7 +21,7 @@ class GrupyFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val binding: FragmentGrupyBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_grupy, container, false)
         val viewModelFactory = GrupyViewModel.Factory(requireActivity().application)
@@ -43,13 +43,13 @@ class GrupyFragment : Fragment() {
             AdRequest.Builder().addNetworkExtrasBundle(AdMobAdapter::class.java, extras).build()
         binding.adView.loadAd(adRequest)
 
-        viewModel.eventNetworkError.observe(viewLifecycleOwner, {
+        viewModel.eventNetworkError.observe(viewLifecycleOwner) {
             if (it == true && !viewModel.isErrorNetworkShown.value!!) {
                 Toast.makeText(activity, getString(R.string.network_error), Toast.LENGTH_LONG)
                     .show()
                 viewModel.onNetworkErrorShown()
             }
-        })
+        }
 
         return binding.root
     }

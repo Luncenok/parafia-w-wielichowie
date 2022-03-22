@@ -23,7 +23,7 @@ class NiezbednikiFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val application = requireActivity().application
         val viewModelFactory = NiezbednikiViewModel.Factory(application)
         viewModel = ViewModelProvider(this, viewModelFactory).get(NiezbednikiViewModel::class.java)

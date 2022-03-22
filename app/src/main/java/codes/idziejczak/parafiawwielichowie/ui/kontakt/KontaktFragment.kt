@@ -23,7 +23,7 @@ class KontaktFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         val application = requireActivity().application
         val viewModelFactory = KontaktViewModel.Factory(application)
         viewModel = ViewModelProvider(this, viewModelFactory).get(KontaktViewModel::class.java)
