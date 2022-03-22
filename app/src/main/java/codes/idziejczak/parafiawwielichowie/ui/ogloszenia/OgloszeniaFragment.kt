@@ -11,10 +11,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import codes.idziejczak.parafiawwielichowie.R
 import codes.idziejczak.parafiawwielichowie.databinding.FragmentOgloszeniaBinding
-import com.google.ads.mediation.admob.AdMobAdapter
-import com.google.android.gms.ads.AdRequest
-import com.google.android.gms.ads.MobileAds
-import com.google.android.gms.ads.RequestConfiguration
 
 class OgloszeniaFragment : Fragment() {
 
@@ -32,32 +28,20 @@ class OgloszeniaFragment : Fragment() {
             ViewModelProvider(this, viewModelFactory).get(OgloszeniaViewModel::class.java)
 
         val adapter = OgloszeniaAdapter()
-        viewModel.listAllOgloszenia.observe(viewLifecycleOwner, {
+        viewModel.listAllOgloszenia.observe(viewLifecycleOwner) {
             adapter.submitList(it)
-        })
+        }
         binding.viewModel = viewModel
         binding.ogloszeniaList.adapter = adapter
         binding.ogloszeniaList.layoutManager = LinearLayoutManager(context)
 
-        val req = RequestConfiguration.Builder()
-            .setTestDeviceIds(listOf("6BAFF71222ABE5046B2841CF75F38B42")).build()
-        MobileAds.setRequestConfiguration(req)
-
-        MobileAds.initialize(context) {}
-
-        val extras = Bundle()
-        extras.putString("npa", "1")
-        val adRequest =
-            AdRequest.Builder().addNetworkExtrasBundle(AdMobAdapter::class.java, extras).build()
-        binding.adView.loadAd(adRequest)
-
-        viewModel.eventNetworkError.observe(viewLifecycleOwner, {
+        viewModel.eventNetworkError.observe(viewLifecycleOwner) {
             if (it == true && !viewModel.isErrorNetworkShown.value!!) {
                 Toast.makeText(activity, getString(R.string.network_error), Toast.LENGTH_LONG)
                     .show()
                 viewModel.onNetworkErrorShown()
             }
-        })
+        }
 
         return binding.root
     }
